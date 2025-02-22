@@ -1,0 +1,239 @@
+.about-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #121212; /* Dark background to match Services */
+  color: #e0e0e0; /* Soft white-gray text */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Smooth Fade-In for the Heading */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  animation: fadeInSlide 0.8s ease-out;
+}
+
+.about-intro {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* Glassmorphism Cards */
+.about-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem; /* Add spacing before price box */
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05); /* Subtle transparency */
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+.about-card h2 {
+  font-size: 1.8rem;
+  color: #d0d0d0;
+}
+
+.about-card p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1rem; /* Add spacing before "What's Included" */
+}
+
+.about-card h3 {
+  font-size: 1.4rem;
+  color: #c0c0c0;
+  margin: 1.5rem 0 0.5rem; /* Spacing above and below the heading */
+  font-weight: 600;
+}
+
+/* What's Included List */
+.included-list {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  text-align: left; /* Align text left for readability */
+  margin: 0 auto; /* Center the list horizontally */
+  max-width: 80%; /* Limit width for better readability */
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+
+.included-list li {
+  position: relative;
+  padding-left: 1.5rem; /* Space for custom bullet */
+  margin-bottom: 0.8rem; /* Spacing between list items */
+}
+
+.included-list li::before {
+  content: "✓"; /* Custom checkmark */
+  position: absolute;
+  left: 0;
+  color: #007BFF; /* Match your CTA color for consistency */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Price Box Section */
+.price-box {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  max-width: 1000px; /* Limit width for a sleek look */
+}
+
+.price-box h2 {
+  font-size: 2rem;
+  color: #f0f0f0;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.price-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.price-option {
+  background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect */
+  padding: 2rem;
+  border-radius: 12px; /* Slightly larger radius for a modern look */
+  width: 100%;
+  max-width: 300px; /* Consistent width for each option */
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.price-option:hover {
+  transform: scale(1.05); /* Slight scale on hover for interactivity */
+  box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+.price-option h3 {
+  font-size: 1.5rem;
+  color: #d0d0d0;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 2.5rem; /* Large, bold price for emphasis */
+  color: #007BFF; /* Primary color for pricing */
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.price-option p {
+  font-size: 1rem;
+  color: #b0b0b0;
+  margin-bottom: 1.5rem;
+}
+
+.price-cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  background: #007BFF;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.price-cta:hover {
+  background: #0056b3;
+  transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* Subtle Glow Effect */
+.subtle-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 10%, transparent 80%);
+  filter: blur(40px);
+  top: 15%;
+  left: 25%;
+  animation: floatGlow 6s infinite alternate;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-card {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .included-list {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .about-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .price-box {
+    padding: 2rem 1rem;
+  }
+
+  .price-options {
+    gap: 1.5rem;
+  }
+
+  .price-option {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+
+  .price-option h3 {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,385 @@
+.home {
+  font-family: Arial, sans-serif;
+  color: #f0f0f0;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #121212;
+}
+
+.home-header {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-image: url('../assets/tbb.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.home-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.home-header h1,
+.home-header p {
+  position: relative;
+  z-index: 2;
+  color: #f0f0f0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.home-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.home-header p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 50%;
+  margin: auto;
+  padding: 1rem;
+}
+
+.description-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
+.home-cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  background: #007BFF;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  z-index: 3;
+}
+
+.home-cta:hover {
+  background: #0056b3;
+}
+
+.services-section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-section h2 {
+  margin-bottom: 1.5rem;
+  color: #f0f0f0;
+}
+
+.services-and-social {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.my-services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.service-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.service-info h3 {
+  color: #f0f0f0;
+  margin-top: 1rem;
+}
+
+.service-info p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.instagram-feed {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.instagram-wrapper {
+  width: 100%;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+}
+
+.instagram-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  margin-right: -50px; /* Hide scrollbar by shifting content */
+  padding-right: 50px; /* Compensate for margin to prevent content shift */
+}
+
+.lightwidget-widget {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .instagram-wrapper {
+    height: 300px;
+  }
+}
+.why-choose-me {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #1a1a1a;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.why-choose-me h2 {
+  font-size: 2rem;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+}
+
+.why-choose-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.why-item {
+  font-size: 1.1rem;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.why-item span {
+  font-size: 1.2rem;
+  color: #007BFF;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #1a1a1a;
+  margin: 1rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  color: #f0f0f0;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  background: #007BFF;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #0056b3;
+}
+
+.home-portfolio {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #1a1a1a;
+}
+
+.home-portfolio h2 {
+  margin-bottom: 1.5rem;
+  color: #f0f0f0;
+}
+
+.home-portfolio p {
+  color: #ddd;
+}
+
+.portfolio-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.portfolio-item {
+  background: #1e1e1e;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.review-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.review-info h4 {
+  margin: 0;
+  color: #f0f0f0;
+}
+
+.review-text {
+  margin-top: 10px;
+  font-style: italic;
+  color: #ddd;
+}
+
+.rating {
+  font-weight: bold;
+  color: #ff9800;
+}
+
+.home-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1a1a1a;
+  margin-top: 1rem;
+  color: #f0f0f0;
+}
+
+.home-footer a {
+  color: #007BFF;
+}
+
+.home-footer a:hover {
+  color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .services-and-social {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .my-services,
+  .instagram-feed {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .service-card {
+    max-width: 100%;
+  }
+
+  .lightwidget-widget {
+    height: 300px;
+  }
+
+  .why-choose-me,
+  .cta-section {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+
+  .why-choose-content {
+    gap: 0.8rem;
+  }
+
+  .portfolio-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .portfolio-item {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .home-header p {
+    max-width: 90%;
+  }
+}
+
+/* Subtle Glow Effect */
+.subtle-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 10%, transparent 80%);
+  filter: blur(40px);
+  top: 15%;
+  left: 25%;
+  animation: floatGlow 6s infinite alternate;
+}

@@ -1,0 +1,156 @@
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  background: rgba(20, 20, 20, 0.9);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  max-width: 100%;
+  opacity: 1; /* Default opacity */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade transition */
+}
+
+/* Hidden State (fade out) */
+.navbar.hidden {
+  opacity: 0;
+  visibility: hidden; /* Prevents interaction when hidden */
+}
+
+/* Visible State (fade in) */
+.navbar.visible {
+  opacity: 1;
+  visibility: visible; /* Ensures interaction when visible */
+}
+
+/* Logo + Brand Name Container */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Adjust spacing between image and text */
+}
+
+/* Circular Logo Image */
+.brand-icon {
+  width: 42px; /* Adjusted for balance */
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+/* Brand Name */
+.navbar-logo a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1; /* Helps vertical centering */
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo a:hover {
+  transform: scale(1.05);
+}
+
+/* Desktop Navigation */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  display: inline-block;
+}
+
+/* Link Styling */
+.navbar-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #e0e0e0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+
+.navbar-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* Animation for Open Menu */
+.bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background: rgba(39, 37, 39, 0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    font-size: larger;
+  }
+
+  .navbar-links.active {
+    transform: translateX(0);
+  }
+
+  /* Ensure the fade effect works on mobile too */
+  .navbar.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .navbar.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
