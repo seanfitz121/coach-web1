@@ -24,18 +24,15 @@
   max-width: 900px;
   margin: 0 auto 2rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05); /* Subtle transparency */
+  background: rgba(255, 255, 255, 0.05);
   width: 100%;
-  border-radius: 12px; 
+  border-radius: 12px;
   box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   opacity: 0;
   transform: translateY(30px);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-  
 }
 
 .service:hover {
@@ -107,7 +104,7 @@
   width: 150px;
   height: auto;
   border-radius: 10px;
-  
+  object-fit: cover; /* Added to maintain aspect ratio */
 }
 
 .subtle-glow {
@@ -146,4 +143,65 @@
   color: #007BFF; /* Match your CTA color for consistency */
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 768px) {
+  .services-container {
+    padding: 2rem; /* Reduce padding on mobile */
+  }
+
+  .services-title {
+    font-size: 2rem; /* Slightly smaller title */
+  }
+
+  .service {
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .service-text {
+    padding-right: 0; /* Remove right padding */
+    margin-bottom: 1rem; /* Add space between text and image */
+    width: 100%; /* Full width */
+  }
+
+  .service-image {
+    width: 100%; /* Full width on mobile */
+    max-width: 300px; /* Optional: set a max-width */
+    height: auto;
+    margin: 0 auto; /* Center the image */
+  }
+
+  .service-tile {
+    margin: 0 1rem; /* Add some horizontal margin */
+  }
+
+  .included-list {
+    max-width: 100%; /* Full width on mobile */
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .services-container {
+    padding: 1rem;
+  }
+
+  .services-title {
+    font-size: 1.8rem;
+  }
+
+  .service-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .service-text p {
+    font-size: 1rem;
+  }
+
+  .service-image {
+    max-width: 250px; /* Smaller max-width for very small screens */
+  }
 }
