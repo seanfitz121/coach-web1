@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './Contact.css';
-import logo from "../assets/profSF.png";
+import logo from '../assets/profSF.png';
 
 function Contact() {
   useEffect(() => {
@@ -14,20 +14,16 @@ function Contact() {
     };
 
     window.addEventListener('message', handleIframeResize);
-
-    return () => {
-      window.removeEventListener('message', handleIframeResize);
-    };
+    return () => window.removeEventListener('message', handleIframeResize);
   }, []);
 
   return (
     <div className="contact">
       <h1>Get in Touch!</h1>
-      <p style={{color: '#ffffff'}}>Leave a message below and I'll get back to you!</p>
-      <p style={{color: '#ffffff'}}>Please add the plan you're interested in and we can discuss further</p>
+      <p style={{ color: '#ffffff' }}>Leave a message below and I'll get back to you!</p>
+      <p style={{ color: '#ffffff' }}>Please add the plan you're interested in and we can discuss further</p>
       <img src={logo} alt="Brand Logo" className="brand-icon1" />
-
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
+      <div>
         <iframe
           className="jotform"
           id="JotFormIFrame-250494657050054"
@@ -36,7 +32,7 @@ function Contact() {
           allow="geolocation; microphone; camera; fullscreen"
           src="https://form.jotform.com/250494657050054"
           frameBorder="0"
-          style={{ width: '100%', border: 'none', minHeight: '600px' }}
+          style={{ border: 'none', minHeight: '600px' }} // Removed width from inline style
         ></iframe>
       </div>
     </div>

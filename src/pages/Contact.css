@@ -1,21 +1,21 @@
 .contact {
-    text-align: center;
-    padding: 4rem;
-    background: #121212;
-  }
-  
-  .contact h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #f0f0f0;
-    animation: fadeInSlide 0.8s ease-out;
-  }
+  text-align: center;
+  padding: 4rem;
+  background: #121212;
+}
 
-  .contact p {
-    font-size: 1rem;
-    color: #f0f0f0;
-    animation: fadeInSlide 0.8s ease-out;
-  }
+.contact h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  animation: fadeInSlide 0.8s ease-out;
+}
+
+.contact p {
+  font-size: 1rem;
+  color: #f0f0f0;
+  animation: fadeInSlide 0.8s ease-out;
+}
   
   .contact form {
     display: flex;
@@ -56,6 +56,65 @@
   }
 
   .jotform {
+    width: 100%; /* Full width of parent */
+    max-width: 800px; /* Default for desktop */
+    border: 2px solid black;
+    min-height: 600px;
     animation: fadeInSlide 0.8s ease-out;
+    display: block; /* Ensures block-level centering */
+    margin: 0 auto; /* Center the iframe horizontally */
+    border-radius: 12px;
+  }
+
+  .contact > div {
+    width: 100%; /* Ensure parent div takes full width */
+    max-width: 800px; /* Default max-width for desktop */
+    margin: 0 auto; /* Center the parent div */
+    padding: 20px; /* Matches your original inline style */
   }
   
+  /* Mobile Media Queries */
+@media screen and (max-width: 768px) {
+  .contact {
+    padding: 6rem 2rem 2rem; /* Added 6rem top padding to clear navbar */
+  }
+
+  .contact h1 {
+    font-size: 2rem;
+  }
+
+  .brand-icon1 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .contact > div {
+    max-width: 90%; /* Constrain parent width */
+    padding: 10px;
+  }
+
+  .jotform {
+    max-width: 350px; /* Wider but controlled width */
+    margin: 0 auto; /* Ensure centering */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact {
+    padding: 5rem 1rem 1rem; /* Added 5rem top padding for smaller screens */
+  }
+
+  .contact h1 {
+    font-size: 1.8rem;
+  }
+
+  .brand-icon1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .jotform {
+    max-width: 300px; /* Smaller for very small screens */
+  }
+}
+
