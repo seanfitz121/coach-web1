@@ -1,7 +1,9 @@
 .services-container {
   text-align: center;
-  background: #121212;; /* Dark background to match Services */
+  background: #121212;
   padding: 4rem;
+  width: 100%; /* Ensure container stays within viewport */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .services-title {
@@ -21,11 +23,9 @@
   display: flex;
   align-items: center;
   text-align: left;
-  max-width: 900px;
-  margin: 0 auto 2rem;
+  max-width: 100%; /* Changed from 900px to prevent overflow */
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
-  width: 100%;
   border-radius: 12px;
   box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
@@ -33,8 +33,8 @@
   opacity: 0;
   transform: translateY(30px);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-sizing: border-box; /* Include padding in width */
 }
-
 .service:hover {
   transform: scale(1.05); /* Slight scale on hover for interactivity */
   box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.15);  
@@ -44,9 +44,9 @@
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   max-width: 900px;
   border-radius: 12px;
-  
-  margin:auto;
-  width: 100%;
+  margin: 0 auto 2rem; /* Center with margin, adjusted below for mobile */
+  width: 100%; /* Full width but constrained by parent */
+  box-sizing: border-box; /* Include padding/margins in width */
 }
 
 .service-tile:hover {
@@ -148,7 +148,8 @@
 /* Media Queries for Mobile */
 @media screen and (max-width: 768px) {
   .services-container {
-    padding: 2rem; /* Reduce padding on mobile */
+    padding: 6rem 2rem 2rem; /* Added 6rem top padding, adjusted sides/bottom */
+    overflow-x: hidden;
   }
 
   .services-title {
@@ -156,8 +157,10 @@
   }
 
   .service {
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
     align-items: flex-start;
+    max-width: 100%; /* Ensure it doesn’t exceed container */
+    margin: 0; /* Remove auto margins that might push it out */
     padding: 1rem;
   }
 
@@ -168,14 +171,16 @@
   }
 
   .service-image {
-    width: 100%; /* Full width on mobile */
-    max-width: 300px; /* Optional: set a max-width */
+    width: 100%;
+    max-width: 200px;
     height: auto;
-    margin: 0 auto; /* Center the image */
+    margin: 0 auto;
   }
 
   .service-tile {
-    margin: 0 1rem; /* Add some horizontal margin */
+    margin: 0 0 2rem; /* Remove horizontal margins causing overflow */
+    max-width: 100%; /* Full width on mobile */
+    padding: 0 1rem; /* Add slight padding to prevent edge touching */
   }
 
   .included-list {
@@ -186,7 +191,7 @@
 
 @media screen and (max-width: 480px) {
   .services-container {
-    padding: 1rem;
+    padding: 5rem 1rem 1rem; /* Slightly less top padding for smaller screens */
   }
 
   .services-title {
@@ -202,6 +207,15 @@
   }
 
   .service-image {
-    max-width: 250px; /* Smaller max-width for very small screens */
+    max-width: 100px; /* Smaller max-width for very small screens */
+  }
+
+  .included-list {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .service-tile {
+    padding: 0 0.5rem; /* Even less padding for very small screens */
   }
 }
