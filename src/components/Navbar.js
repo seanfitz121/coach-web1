@@ -5,45 +5,59 @@ import logo from "../assets/profSF.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      // Add a small threshold to prevent jitter (e.g., only hide if scrolling down by more than 10px)
-      const scrollThreshold = 10;
-      
-      // Fade out when scrolling down (unless near the top), fade in when scrolling up
-      setVisible(
-        prevScrollPos > currentScrollPos + scrollThreshold || currentScrollPos < 50
-      );
-      setPrevScrollPos(currentScrollPos);
-      
-      // Debugging log (remove in production)
-      console.log("Scroll position:", currentScrollPos, "Visible:", visible);
+    console.log("useEffect mounted"); // Confirm effect runs
+
+    // Debounce function to limit scroll event frequency
+    const debounce = (func, delay) => {
+      let timeoutId;
+      return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func(...args), delay);
+      };
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos, visible]); // Added visible to dependency array for reactivity
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+      const isNearTop = currentScrollPos < 50;
+
+      setVisible(isNearTop || !isScrollingDown);
+      setPrevScrollPos(currentScrollPos);
+
+      console.log({
+        currentScrollPos,
+        prevScrollPos,
+        isScrollingDown,
+        visible: isNearTop || !isScrollingDown,
+      });
+    };
+
+    const debouncedHandleScroll = debounce(handleScroll, 100); // 100ms debounce
+
+    window.addEventListener("scroll", debouncedHandleScroll);
+    return () => {
+      console.log("useEffect unmounted");
+      window.removeEventListener("scroll", debouncedHandleScroll);
+    };
+  }, [prevScrollPos]);
 
   return (
     <nav className={`navbar ${visible ? "visible" : "hidden"}`}>
-      {/* Brand with Circular Image */}
       <div className="navbar-logo">
         <img src={logo} alt="Brand Logo" className="brand-icon" />
         <Link to="/">Sean Coaching</Link>
       </div>
 
-      {/* Hamburger Icon */}
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
       </div>
 
-      {/* Navbar Links */}
       <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <li>
           <Link to="/" onClick={() => setMenuOpen(false)}>

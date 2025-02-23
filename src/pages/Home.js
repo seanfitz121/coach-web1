@@ -44,7 +44,7 @@ function Home() {
         <div className="description-box">
           <p>I’m Sean, a dedicated fitness and wellbeing coach here to help you achieve your fitness goals and build sustainable habits. Whether you're looking to get stronger, lose weight, or improve overall health, I create personalized fitness and nutrition plans tailored to your needs.</p>
         </div>
-        <a href="/contact" className="home-cta">Get Started</a>
+        <a href="/services" className="home-cta">See More!</a>
       </header>
 
       <div className="services-section">
