@@ -20,6 +20,7 @@ code {
 
 html, body {
   overflow-x: hidden;
+  background-color: #1e1e1e;
   width: 100%;
   height: auto; /* Fixes forced extra scrolling */
   min-height: 100vh;
