@@ -177,6 +177,10 @@
   border: none;
 }
 
+.home-image {
+  margin-top: 75px;
+}
+
 @media (max-width: 768px) {
   .instagram-wrapper {
     height: 300px;

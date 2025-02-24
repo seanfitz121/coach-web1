@@ -30,6 +30,11 @@ const Footer = () => {
           </a>
         </div>
       </div>
+
+      {/* ✅ Web Design Watermark */}
+      <div className="watermark">
+        <p>Created by <a href="https://github.com/seanfitz121" target="_blank" rel="noopener noreferrer">SF</a></p>
+      </div>
     </footer>
   );
 };

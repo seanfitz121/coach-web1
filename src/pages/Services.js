@@ -45,12 +45,12 @@ function Services() {
   const navigate = useNavigate();
   return (
     <div className="services-container">
-      <h1 className="services-title" style={{color: "#ffffff", marginBottom: '12px'}}>My Services</h1>
+      <h1 className='underline-heading animated-heading glow-heading' style={{color: "#ffffff", marginBottom: '12px'}}>My Services</h1>
       {services.map((service, index) => (
         <div className="service-tile">
           <div key={index} className="service fade-in" style={{ animationDelay: `${index * 0.3}s` }}>
             <div className="service-text">
-              <h2>{service.title}</h2>
+              <h2 className='animated-heading glow-heading'>{service.title}</h2>
               <p>{service.description}</p>
               <ul className='included-list'>
                 <li>{service.included1}</li>

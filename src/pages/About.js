@@ -3,11 +3,13 @@ import './About.css';
 import fitness1 from '../assets/fitness-pic-1.svg';
 import fitness2 from '../assets/fitness-pic-2.svg';
 import nutrition1 from '../assets/nutrition-pic-1.svg';
+import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate();
   return (
     <div className="about-container">
-      <h1 className="animated-heading">Plans</h1>
+      <h1 className="animated-heading underline-heading glow-heading'">Plans</h1>
       <p className="about-intro">
         See what's included, as well as pricing below for coaching plans!
       </p>
@@ -91,25 +93,25 @@ function About() {
             <h3>PT Plan</h3>
             <p className="price">€100/month</p>
             <p>or €1000/year (Save 17%)</p>
-            <a href="/contact" className="price-cta">
-              Get Started
-            </a>
+            <button onClick={() => navigate("/contact")}> 
+              <span>Get Started!</span>
+            </button>
           </div>
           <div className="price-option">
             <h3>Nutrition Plan Only</h3>
             <p className="price">€25</p>
             <p>As listed above</p>
-            <a href="/contact" className="price-cta">
-              Get Started
-            </a>
+            <button onClick={() => navigate("/contact")}> 
+              <span>Get Started!</span>
+            </button>
           </div>
           <div className="price-option">
             <h3>Fitness Plan Only</h3>
             <p className="price">€30</p>
             <p>As listed above</p>
-            <a href="/contact" className="price-cta">
-              Get Started
-            </a>
+            <button onClick={() => navigate("/contact")}> 
+              <span>Get Started!</span>
+            </button>
           </div>
         </div>
       </div>

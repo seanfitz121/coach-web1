@@ -25,20 +25,32 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // ✅ Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuOpen && !event.target.closest(".navbar")) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [menuOpen]);
+
   return (
     <nav className={`navbar ${visible ? "visible" : "hidden"} ${menuOpen ? "mobile-open" : ""}`}>
       <Link to="/" className="navbar-logo">
         <img src={logo} alt="Brand Logo" className="brand-icon" />
       </Link>
 
-      {/* Hamburger Menu Toggle */}
+      {/* ✅ Hamburger Menu Toggle */}
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
       </div>
 
-      {/* Navbar Links */}
+      {/* ✅ Navbar Links (Slides in with animation) */}
       <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
         <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>

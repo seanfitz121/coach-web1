@@ -142,86 +142,120 @@
 }
 
 
-/* Responsive Styling */
+/* 🔥 Modern Mobile Navbar Styling */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
     height: 90px;
   }
   .main-content {
-    padding-top: 90px; /* Slightly larger for mobile */
+    padding-top: 90px;
   }
 
-  .menu-toggle {
-    display: flex;
-  }
-
+  /* ✅ Frosted Glass Background */
   .navbar-links {
     position: fixed;
     top: 0;
     right: 0;
     width: 70%;
     height: 100vh;
-    background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(12px);
+    background: rgba(20, 20, 20, 0.9); /* Dark semi-transparent */
+    backdrop-filter: blur(15px); /* Frosted glass effect */
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
     transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
   }
 
+  /* ✅ Smooth Slide-in Effect */
   .navbar-links.active {
     transform: translateX(0);
   }
 
+  /* ✅ Modern Button Styling */
   .navbar-links a {
     font-size: 1.5rem;
-    padding: 15px 20px;
+    padding: 12px 20px;
     border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
   }
 
+  /* 🔥 Hover Effect with Subtle Glow */
+  .navbar-links a:hover {
+    color: #fff;
+    background: linear-gradient(45deg, #007BFF, #00C4FF);
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.5);
+    transform: scale(1.1);
+  }
+
+  /* ✅ Animated Underline */
   .navbar-links a::after {
-    bottom: 8px;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: #00C4FF;
+    transition: width 0.3s ease;
+    transform: translateX(-50%);
   }
 
-  .brand-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .navbar-logo a {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  
-  .navbar {
-    padding: 1rem;
-    height: 90px;
-  }
-  .main-content {
-    padding-top: 90px; /* Slightly larger for mobile */
-  }
-
-  .navbar-links {
+  .navbar-links a:hover::after {
     width: 80%;
-    gap: 2.5rem;
   }
 
-  .navbar-links a {
-    font-size: 1.3rem;
+  /* ✅ Improved Hamburger Menu */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1100;
   }
 
-  .brand-icon {
-    width: 36px;
-    height: 36px;
+  /* 🔥 Animated Bars */
+  .bar {
+    width: 32px;
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
   }
 
-  .navbar-logo a {
-    font-size: 1.4rem;
+  .bar.open:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .bar.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .bar.open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* ✅ Reduce Menu Width on Very Small Screens */
+  @media (max-width: 480px) {
+    .navbar-links {
+      width: 80%;
+    }
+
+    .navbar-links a {
+      font-size: 1.3rem;
+    }
+
+    .menu-toggle {
+      padding: 8px;
+    }
   }
 }

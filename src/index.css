@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', 'Poppins', 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,3 +40,57 @@ html, body {
 }
 
 
+/* Modern Heading Styling */
+h1, h2, h3 {
+  font-family: 'Poppins', 'Inter', 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+/* 🔥 Gradient Effect on Headings */
+.gradient-heading {
+  background: linear-gradient(90deg, #007BFF, #00C4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🔥 Animated Underline */
+.underline-heading::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #007BFF;
+  margin: 5px auto 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.underline-heading:hover::after {
+  width: 80px; /* Expands on hover */
+}
+
+/* 🔥 Soft Glow Effect */
+.glow-heading {
+  text-shadow: 0px 0px 10px rgba(0, 123, 255, 0.6);
+}
+
+/* 🔥 Animated Slide-In Heading */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-heading {
+  animation: fadeInSlide 0.8s ease-out;
+}

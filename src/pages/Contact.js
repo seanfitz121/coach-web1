@@ -19,7 +19,7 @@ function Contact() {
 
   return (
     <div className="contact">
-      <h1>Get in Touch!</h1>
+      <h1 className='underline-heading animated-heading glow-heading' style={{marginBottom: "12px"}}>Get in Touch!</h1>
       <p style={{ color: '#ffffff' }}>Leave a message below and I'll get back to you!</p>
       <p style={{ color: '#ffffff', padding: '2px' }}>Please add the plan you're interested in and we can discuss further</p>
       <img src={logo} alt="Brand Logo" className="brand-icon1" />

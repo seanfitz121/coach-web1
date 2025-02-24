@@ -5,6 +5,7 @@ import nutrition from "../assets/nutrition1.png";
 import checkin from "../assets/checkin1.png";
 import placeholderProfileImage from "../assets/placeholder-profile.jpg";
 import { useNavigate } from "react-router-dom";
+import homeWorkout from "../assets/home-plan.svg"
 
 const services = [
   { id: 1, title: "Fitness Plans", description: "Tailored fitness plans to support your goals", icon: fitness },
@@ -41,7 +42,7 @@ function Home() {
   return (
     <div className="home">
       <header className="home-header">
-        <h1>Sean Coaching</h1>
+        <h1 className='underline-heading animated-heading glow-heading'>Sean Coaching</h1>
         <p>Online Fitness & Wellbeing Coach</p>
         <div className="description-box">
           <div className='description-box2'>
@@ -69,16 +70,7 @@ function Home() {
             ))}
           </div>
           <div className="instagram-feed">
-            <div className="instagram-wrapper">
-              <div className="instagram-mask">
-                <iframe
-                  src="//lightwidget.com/widgets/37b0df008f7b5af9b979aee6ed5f9dc2.html"
-                  allowTransparency="true"
-                  className="lightwidget-widget"
-                  title="Instagram Feed"
-                ></iframe>
-              </div>
-            </div>
+            <img src={homeWorkout} alt={"Personalized Workouts"} className="home-image"></img>
           </div>
         </div>
       </div>
@@ -106,7 +98,9 @@ function Home() {
       <section className="cta-section">
         <h2>Ready to Transform Your Life?</h2>
         <p>Take the first step toward your fitness goals today. Contact me for a personalized plan!</p>
-        <a href="/contact" className="cta-button">Get in Touch</a>
+        <button onClick={() => navigate("/services")}> 
+          <span>Get in Touch!</span>
+        </button>
       </section>
 
       <section className="home-portfolio">
@@ -130,7 +124,10 @@ function Home() {
       
 
       <footer className="home-footer">
-        <p>Ready to elevate your fitness/health? <a href="/contact">Apply here today!</a></p>
+        <p>Ready to elevate your fitness/health?</p>
+        <button onClick={() => navigate("/services")}> 
+          <span>Apply here today!</span>
+        </button>
       </footer>
       <div className="subtle-glow"></div>
     </div>

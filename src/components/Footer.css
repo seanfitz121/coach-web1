@@ -35,3 +35,24 @@
 .footer-links a:hover img {
   transform: scale(1.2); /* Slight zoom on hover */
 }
+
+/* ✅ Web Design Watermark Styling */
+.watermark {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  color: #bbb;
+}
+
+.watermark a {
+  color: #bbb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.watermark a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
