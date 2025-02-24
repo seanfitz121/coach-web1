@@ -124,7 +124,7 @@ function Home() {
       
 
       <footer className="home-footer">
-        <p>Ready to elevate your fitness/health?</p>
+        <p style={{marginBottom: "12px"}}>Ready to elevate your fitness/health?</p>
         <button onClick={() => navigate("/services")}> 
           <span>Apply here today!</span>
         </button>

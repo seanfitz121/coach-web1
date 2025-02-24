@@ -370,6 +370,9 @@ button:hover::before {
 .home-footer a:hover {
   color: #0056b3;
 }
+.home-image {
+  margin-top: 75px;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -414,6 +417,10 @@ button:hover::before {
 
   .home-header p {
     max-width: 90%;
+  }
+  .home-image {
+    margin-top: 75px;
+    width: 90%;
   }
 }
 

@@ -52,7 +52,7 @@ function Services() {
             <div className="service-text">
               <h2 className='animated-heading glow-heading'>{service.title}</h2>
               <p>{service.description}</p>
-              <ul className='included-list'>
+              <ul className='included-list' style={{marginTop: "12px"}}>
                 <li>{service.included1}</li>
                 <li>{service.included2}</li>
                 <li>{service.included3}</li>
