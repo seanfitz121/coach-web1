@@ -1,13 +1,13 @@
 .about-container {
   text-align: center;
   padding: 4rem 2rem;
-  background: #121212; /* Dark background to match Services */
-  color: #e0e0e0; /* Soft white-gray text */
+  background: #121212; /* Dark background */
+  color: #e0e0e0;
   position: relative;
   overflow: hidden;
 }
 
-/* Smooth Fade-In for the Heading */
+/* Heading animation (unchanged) */
 @keyframes fadeInSlide {
   0% {
     opacity: 0;
@@ -29,87 +29,128 @@
 .about-intro {
   font-size: 1.3rem;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   opacity: 0.8;
 }
 
-/* Glassmorphism Cards */
-.about-cards {
-  display: flex;
-  flex-direction: column;
+/* 3 rows x 2 columns grid (Card | Image in each row) */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;          /* spacing between columns and rows */
+  max-width: 1200px;
+  margin: 0 auto 3rem;     /* center the grid, add bottom spacing */
+  padding: 0 1rem;
+  /* Vertically center items in each row */
   align-items: center;
-  gap: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem; /* Add spacing before price box */
+  grid-template-areas:
+    "img1 card1"
+    "card2 img2"
+    "img3 card3";
+  
+  /* Horizontally center items in each column */
+  justify-items: center; 
 }
+.row1-image { grid-area: img1; }
+.row1-card  { grid-area: card1; }
+.row2-card  { grid-area: card2; }
+.row2-image { grid-area: img2; }
+.row3-image { grid-area: img3; }
+.row3-card  { grid-area: card3; }
 
+/* About Cards */
 .about-card {
-  background: rgba(255, 255, 255, 0.05); /* Subtle transparency */
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
   border-radius: 10px;
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
   box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .about-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
   box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.15);
 }
 
 .about-card h2 {
-  font-size: 1.8rem;
-  color: #d0d0d0;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
 }
 
 .about-card p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   opacity: 0.9;
-  margin-bottom: 1rem; /* Add spacing before "What's Included" */
+  margin-bottom: 1rem;
 }
 
 .about-card h3 {
   font-size: 1.4rem;
   color: #c0c0c0;
-  margin: 1.5rem 0 0.5rem; /* Spacing above and below the heading */
+  margin: 1.5rem 0 0.5rem;
   font-weight: 600;
 }
 
-/* What's Included List */
+/* "What's Included" list styling */
 .included-list {
-  list-style: none; /* Remove default bullets */
   padding: 0;
-  text-align: left; /* Align text left for readability */
-  margin: 0 auto; /* Center the list horizontally */
-  max-width: 80%; /* Limit width for better readability */
-  font-size: 1rem;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 90%;
+  font-size: 0.95rem;
   color: #b0b0b0;
   line-height: 1.6;
+  position: relative; /* for absolute checkmark */
 }
 
 .included-list li {
-  position: relative;
-  padding-left: 1.5rem; /* Space for custom bullet */
-  margin-bottom: 0.8rem; /* Spacing between list items */
+  list-style: none; /* remove default bullet */
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .included-list li::before {
-  content: "✓"; /* Custom checkmark */
+  content: "✓";
   position: absolute;
   left: 0;
-  color: #007BFF; /* Match your CTA color for consistency */
+  color: #007BFF;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-/* Price Box Section */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* slightly larger */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Images (red boxes) */
+.pricing-img {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  align-self: center;
+}
+
+.pricing-img:hover {
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+/* Price Box Section (unchanged) */
 .price-box {
   text-align: center;
   padding: 3rem 2rem;
   margin: 0 auto;
-  max-width: 1000px; /* Limit width for a sleek look */
+  max-width: 1000px;
 }
 
 .price-box h2 {
@@ -127,11 +168,11 @@
 }
 
 .price-option {
-  background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.05);
   padding: 2rem;
-  border-radius: 12px; /* Slightly larger radius for a modern look */
+  border-radius: 12px;
   width: 100%;
-  max-width: 300px; /* Consistent width for each option */
+  max-width: 300px;
   box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -139,7 +180,7 @@
 }
 
 .price-option:hover {
-  transform: scale(1.05); /* Slight scale on hover for interactivity */
+  transform: scale(1.05);
   box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.15);
 }
 
@@ -150,8 +191,8 @@
 }
 
 .price {
-  font-size: 2.5rem; /* Large, bold price for emphasis */
-  color: #007BFF; /* Primary color for pricing */
+  font-size: 2.5rem;
+  color: #007BFF;
   font-weight: 700;
   margin: 1rem 0;
 }
@@ -176,10 +217,10 @@
 
 .price-cta:hover {
   background: #0056b3;
-  transform: scale(1.05); /* Slight scale on hover */
+  transform: scale(1.05);
 }
 
-/* Subtle Glow Effect */
+/* Subtle Glow (unchanged) */
 .subtle-glow {
   position: absolute;
   width: 150px;
@@ -200,40 +241,32 @@
   }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* Responsive: stack on smaller screens */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* one column */
+    grid-template-areas:
+      "img1"
+      "card1"
+      "img2"  /* swap row2 so image2 goes first on mobile */
+      "card2"
+      "img3"
+      "card3";
+  }
+  .pricing-img {
+    max-width: 280px;
+    margin: 0 auto; /* center the image in mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-img {
+    max-width: 200px;
+  }
   .about-card {
-    width: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
   }
-
   .included-list {
-    max-width: 90%;
-    font-size: 0.9rem;
-  }
-
-  .about-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .price-box {
-    padding: 2rem 1rem;
-  }
-
-  .price-options {
-    gap: 1.5rem;
-  }
-
-  .price-option {
-    max-width: 100%;
-    padding: 1.5rem;
-  }
-
-  .price {
-    font-size: 2rem;
-  }
-
-  .price-option h3 {
-    font-size: 1.3rem;
+    font-size: 0.85rem;
   }
 }

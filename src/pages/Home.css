@@ -56,6 +56,10 @@
   font-size: 1.2rem;
   line-height: 1.6;
   color: #f0f0f0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 100px;
+  border: 2px solid lightseagreen;
+  margin-bottom: 12px;
 }
 
 .home-cta {
@@ -236,20 +240,57 @@
   margin-bottom: 1.5rem;
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  color: #fff;
-  background: #007BFF;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background 0.3s ease;
+button {
+  outline: none;
+ cursor: pointer;
+ border: 2px solid lightseagreen;
+ padding: 0.9rem 2rem;
+ margin: 0;
+ font-family: inherit;
+ font-size: inherit;
+ position: relative;
+ display: inline-block;
+ letter-spacing: 0.05rem;
+ font-weight: 700;
+ font-size: 17px;
+ border-radius: 500px;
+ overflow: hidden;
+ background: linear-gradient(45deg, #007BFF, #00C4FF);;
+ color: ghostwhite;
+ z-index: 2;
 }
 
-.cta-button:hover {
-  background: #0056b3;
+button span {
+ position: relative;
+ z-index: 10;
+ transition: color 0.4s
+}
+
+ button:hover span {
+  color: black;
+ }
+
+ button::before,
+button::after {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 0;
+}
+
+button::before {
+ content: "";
+ background: #000;
+ width: 120%;
+ left: -10%;
+ transform: skew(30deg);
+ transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+button:hover::before {
+ transform: translate3d(100%, 0, 0);
 }
 
 .home-portfolio {

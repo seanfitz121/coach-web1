@@ -1,9 +1,10 @@
 import React from 'react';
 import './Services.css';
-import fitnessImage from '../assets/fitness1.png';
-import nutritionImage from '../assets/nutrition1.png';
-import checkinImage from '../assets/checkin1.png';
-import knowledgeImage from '../assets/knowledge.png';
+import fitnessImage from '../assets/fitness-plan.svg';
+import nutritionImage from '../assets/food-plan.svg';
+import checkinImage from '../assets/checkin-3.svg';
+import knowledgeImage from '../assets/knowledge-1.svg';
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -41,9 +42,10 @@ const services = [
 ];
 
 function Services() {
+  const navigate = useNavigate();
   return (
     <div className="services-container">
-      <h1 className="services-title" style={{color: "#ffffff", marginBottom: '8px'}}>Our Services</h1>
+      <h1 className="services-title" style={{color: "#ffffff", marginBottom: '12px'}}>My Services</h1>
       {services.map((service, index) => (
         <div className="service-tile">
           <div key={index} className="service fade-in" style={{ animationDelay: `${index * 0.3}s` }}>
@@ -61,6 +63,9 @@ function Services() {
         </div>
       ))}
       <div className="subtle-glow"></div>
+      <button onClick={() => navigate("/pricing")}> 
+          <span>See Pricing/Info!</span>
+        </button>
     </div>
   );
 }

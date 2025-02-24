@@ -27,9 +27,9 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${visible ? "visible" : "hidden"} ${menuOpen ? "mobile-open" : ""}`}>
-      <div className="navbar-logo">
+      <Link to="/" className="navbar-logo">
         <img src={logo} alt="Brand Logo" className="brand-icon" />
-      </div>
+      </Link>
 
       {/* Hamburger Menu Toggle */}
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>

@@ -4,6 +4,7 @@ import fitness from "../assets/fitness1.png";
 import nutrition from "../assets/nutrition1.png";
 import checkin from "../assets/checkin1.png";
 import placeholderProfileImage from "../assets/placeholder-profile.jpg";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   { id: 1, title: "Fitness Plans", description: "Tailored fitness plans to support your goals", icon: fitness },
@@ -36,15 +37,20 @@ const reviews = [
 ];
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div className="home">
       <header className="home-header">
         <h1>Sean Coaching</h1>
         <p>Online Fitness & Wellbeing Coach</p>
         <div className="description-box">
-          <p>I’m Sean, a dedicated fitness and wellbeing coach here to help you achieve your fitness goals and build sustainable habits. Whether you're looking to get stronger, lose weight, or improve overall health, I create personalized fitness and nutrition plans tailored to your needs.</p>
+          <div className='description-box2'>
+            <p>I’m Sean, a dedicated fitness and wellbeing coach here to help you achieve your fitness goals and build sustainable habits. Whether you're looking to get stronger, lose weight, or improve overall health, I create personalized fitness and nutrition plans tailored to your needs.</p>
+          </div>
         </div>
-        <a href="/services" className="home-cta">See More!</a>
+        <button onClick={() => navigate("/services")}> 
+          <span>Get Started!</span>
+        </button>
       </header>
 
       <div className="services-section">
