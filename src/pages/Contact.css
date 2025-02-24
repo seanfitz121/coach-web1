@@ -53,6 +53,8 @@
     object-fit: cover;
     border: 2px solid #fff;
     animation: fadeInSlide 0.8s ease-out;
+    margin-top: 8px;
+    padding: 2px;
   }
 
   .jotform {

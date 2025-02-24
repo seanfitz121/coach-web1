@@ -43,7 +43,7 @@ const services = [
 function Services() {
   return (
     <div className="services-container">
-      <h1 className="services-title" style={{color: "#ffffff"}}>Our Services</h1>
+      <h1 className="services-title" style={{color: "#ffffff", marginBottom: '8px'}}>Our Services</h1>
       {services.map((service, index) => (
         <div className="service-tile">
           <div key={index} className="service fade-in" style={{ animationDelay: `${index * 0.3}s` }}>

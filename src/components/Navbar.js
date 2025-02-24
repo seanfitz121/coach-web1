@@ -1,84 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import logo from "../assets/profSF.png";
+import logo from "../assets/Sean.svg";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    console.log("useEffect mounted"); // Confirm effect runs
-
-    // Debounce function to limit scroll event frequency
-    const debounce = (func, delay) => {
-      let timeoutId;
-      return (...args) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => func(...args), delay);
-      };
-    };
-
     const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const isScrollingDown = currentScrollPos > prevScrollPos;
-      const isNearTop = currentScrollPos < 50;
+      const currentScrollY = window.scrollY;
 
-      setVisible(isNearTop || !isScrollingDown);
-      setPrevScrollPos(currentScrollPos);
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setVisible(false); // Hide navbar when scrolling down
+      } else {
+        setVisible(true); // Show navbar when scrolling up
+      }
 
-      console.log({
-        currentScrollPos,
-        prevScrollPos,
-        isScrollingDown,
-        visible: isNearTop || !isScrollingDown,
-      });
+      setLastScrollY(currentScrollY);
     };
 
-    const debouncedHandleScroll = debounce(handleScroll, 100); // 100ms debounce
-
-    window.addEventListener("scroll", debouncedHandleScroll);
-    return () => {
-      console.log("useEffect unmounted");
-      window.removeEventListener("scroll", debouncedHandleScroll);
-    };
-  }, [prevScrollPos]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <nav className={`navbar ${visible ? "visible" : "hidden"}`}>
+    <nav className={`navbar ${visible ? "visible" : "hidden"} ${menuOpen ? "mobile-open" : ""}`}>
       <div className="navbar-logo">
         <img src={logo} alt="Brand Logo" className="brand-icon" />
-        <Link to="/">Sean Coaching</Link>
       </div>
 
+      {/* Hamburger Menu Toggle */}
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
       </div>
 
+      {/* Navbar Links */}
       <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>
-        <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/services" onClick={() => setMenuOpen(false)}>
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link to="/pricing" onClick={() => setMenuOpen(false)}>
-            Pricing
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </Link>
-        </li>
+        <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+        <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
+        <li><Link to="/pricing" onClick={() => setMenuOpen(false)}>Pricing</Link></li>
+        <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
       </ul>
     </nav>
   );
